@@ -1,9 +1,10 @@
 import Main from './components/Main';
+import Card from './components/Card';
 
 function App() {
   return (
     <Main>
-      <form>
+      <Card tag='form'>
         <div>
           <label>Username</label>
           <input type="text" />
@@ -15,11 +16,11 @@ function App() {
         <div>
           <button>Add user</button>
         </div>
-      </form>
-      <ul>
+      </Card>
+      <Card tag='ul'>
         <li>John (25 years old)</li>
         <li>Jane (24 years old)</li>
-      </ul>
+      </Card>
     </Main>
   );
 }
