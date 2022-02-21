@@ -1,6 +1,8 @@
+import Main from './components/Main';
+
 function App() {
   return (
-    <main>
+    <Main>
       <form>
         <div>
           <label>Username</label>
@@ -18,7 +20,7 @@ function App() {
         <li>John (25 years old)</li>
         <li>Jane (24 years old)</li>
       </ul>
-    </main>
+    </Main>
   );
 }
 
