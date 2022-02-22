@@ -1,26 +1,12 @@
 import Main from './components/Main';
-import Card from './components/Card';
+import Form from './components/Form';
+import List from './components/List';
 
 function App() {
   return (
     <Main>
-      <Card tag='form'>
-        <div>
-          <label>Username</label>
-          <input type="text" />
-        </div>
-        <div>
-          <label>Age (years)</label>
-          <input type="number" />
-        </div>
-        <div>
-          <button>Add user</button>
-        </div>
-      </Card>
-      <Card tag='ul'>
-        <li>John (25 years old)</li>
-        <li>Jane (24 years old)</li>
-      </Card>
+      <Form />
+      <List />
     </Main>
   );
 }
