@@ -4,20 +4,20 @@ const Card = (props) => {
   const { tag, children } = props;
 
   const childProps = {
-    className: styles.card,
     ...props,
     children: undefined,
-    tag: undefined
-  }
+    tag: undefined,
+    className: `${styles.card} ${props.className ?? ''}`,
+  };
 
   switch (tag) {
     case 'form':
-      return <form {...childProps}>{children}</form>
+      return <form {...childProps}>{children}</form>;
     case 'ul':
-      return <ul {...childProps}>{children}</ul>
+      return <ul {...childProps}>{children}</ul>;
     default:
-      return <div {...childProps}>{children}</div>
+      return <div {...childProps}>{children}</div>;
   }
-}
+};
 
 export default Card;
