@@ -1,0 +1,29 @@
+.form__input-box {
+  display: flex;
+  flex-flow: column nowrap;
+  margin-top: 2.4rem;
+}
+
+.form__input-box--no-margin {
+  margin-top: 0;
+}
+
+.form__input-box--buttons {
+  flex-flow: row wrap;
+}
+
+.form__label {
+  margin-bottom: 0.4rem;
+  font-weight: 700;
+}
+
+.form__btn--submit {
+  margin: 0 auto;
+}
+
+@media only screen and (min-width: 576px) {
+
+  .form__btn--submit {
+    margin: 0;
+  }
+}
