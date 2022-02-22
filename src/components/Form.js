@@ -1,14 +1,17 @@
-import { useState } from 'react';
+import { useState, ReactDOM } from 'react';
 import Card from './Card';
 import Button from './Button';
 import Input from './Input';
+import Modal from './Modal';
 import styles from './Form.module.css';
 
 const Form = ({ onSubmit }) => {
-  const [data, setData] = useState({
-    name: '',
-    age: '',
-  });
+  const [data, setData] = useState({ name: '', age: '' });
+  const [error, setError] = useState();
+
+  const setInputError = (text) => {
+    setError({ summary: 'Invalid input', info: text });
+  }
 
   const onChangeHandler = (e) => {
     const prop = e.target.getAttribute('name');
@@ -20,6 +23,22 @@ const Form = ({ onSubmit }) => {
 
   const onSubmitHandler = (e) => {
     e.preventDefault();
+
+    if (!data.name.trim().length) {
+      setInputError('Please provide a valid username');
+      return;
+    }
+    
+    if (!data.age.trim().length) {
+      setInputError('Please provide a valid age');
+      return;
+    }
+    
+    if (+data.age < 0) {
+      setInputError('Age cannot be lower than 0');
+      return;
+    }
+    
     onSubmit(data);
     setData({ name: '', age: '' });
   };
@@ -55,6 +74,12 @@ const Form = ({ onSubmit }) => {
           </Button>
         </div>
       </form>
+      <Modal
+        isActive={!!error}
+        heading={error?.summary}
+        text={error?.info}
+        onClose={() => setError()}
+      />
     </Card>
   );
 };
