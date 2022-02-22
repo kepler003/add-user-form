@@ -1,5 +1,6 @@
 import { useState } from 'react';
 import Main from './components/Main';
+import Row from './components/Row';
 import Form from './components/Form';
 import List from './components/List';
 
@@ -18,8 +19,10 @@ function App() {
 
   return (
     <Main>
-      <Form onSubmit={onSubmit} />
-      <List users={users} />
+      <Row>
+        <Form onSubmit={onSubmit} />
+        <List users={users} />
+      </Row>
     </Main>
   );
 }
