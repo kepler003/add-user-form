@@ -4,7 +4,7 @@ import Button from './Button';
 import Input from './Input';
 import styles from './Form.module.css';
 
-const Form = () => {
+const Form = ({ onSubmit }) => {
   const [data, setData] = useState({
     name: '',
     age: '',
@@ -12,14 +12,21 @@ const Form = () => {
 
   const onChangeHandler = (e) => {
     const prop = e.target.getAttribute('name');
-    setData((prevData) => ({ ...prevData, [prop]: e.target.value }));
+    setData((prevData) => ({
+      ...prevData,
+      [prop]: e.target.value,
+    }));
   };
 
-  const resetData = () => setData({ name: '', age: '' });
+  const onSubmitHandler = (e) => {
+    e.preventDefault();
+    onSubmit(data);
+    setData({ name: '', age: '' });
+  };
 
   return (
     <Card>
-      <form>
+      <form onSubmit={onSubmitHandler}>
         <div
           className={`${styles['form__input-box']} ${styles['form__input-box--no-margin']}`}
         >
