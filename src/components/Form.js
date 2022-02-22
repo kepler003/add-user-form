@@ -15,6 +15,8 @@ const Form = () => {
     setData((prevData) => ({ ...prevData, [prop]: e.target.value }));
   };
 
+  const resetData = () => setData({ name: '', age: '' });
+
   return (
     <Card>
       <form>
